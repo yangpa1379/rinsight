@@ -1,0 +1,949 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RINSIGHT · Theme 2 — Trendy</title>
+<meta name="description" content="글로벌엔 정답이 없습니다. 브랜드 마케터와 크리에이터, 두 경험을 바탕으로 당신에게 맞는 방향을 함께 찾아가는 1:1 컨설팅." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%E2%9C%88%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<style>
+/* =====================================================================
+   RINSIGHT — Theme 2 · TRENDY
+   젊고 생동감 있는 크리에이터 무드 — vivid accents, marquee bands,
+   sticker badges, marker highlights, hard offset shadows.
+   ===================================================================== */
+
+:root {
+  --bg:      #FFFBF2;   /* warm cream */
+  --ink:     #14120F;
+  --ink-soft:#453F38;
+  --muted:   #8A8177;
+  --red:     #FF4D2E;   /* electric tangerine */
+  --blue:    #2E5BFF;   /* cobalt */
+  --lime:    #C8F04E;   /* marker */
+  --pink:    #FFC7E0;
+  --yellow:  #FFE066;
+  --line:    #14120F;
+
+  --sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+          system-ui, Roboto, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+
+  --maxw: 1120px;
+  --pad: clamp(22px, 5.5vw, 56px);
+  --nav-h: 72px;
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, p, ol, ul { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+em { font-style: normal; }
+::selection { background: var(--lime); color: var(--ink); }
+
+/* ------------------------------------------------ shared */
+.eyebrow {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  padding: 0.45em 1.1em;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 3px 3px 0 var(--ink);
+  margin-bottom: 1.6rem;
+}
+.section-title {
+  font-weight: 900;
+  font-size: clamp(2rem, 5.6vw, 3.5rem);
+  line-height: 1.16;
+  letter-spacing: -0.04em;
+}
+.marker {
+  background: linear-gradient(transparent 58%, var(--lime) 58%);
+  padding: 0 0.06em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.marker--pink { background: linear-gradient(transparent 58%, var(--pink) 58%); }
+.marker--blue { background: linear-gradient(transparent 58%, #B9CCFF 58%); }
+
+/* ------------------------------------------------ stickers */
+.sticker {
+  display: inline-block;
+  font-weight: 800;
+  font-size: clamp(0.78rem, 1.8vw, 0.9rem);
+  letter-spacing: 0.05em;
+  padding: 0.5em 1.1em;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.sticker--blue { background: var(--blue); color: #fff; }
+.sticker--yellow { background: var(--yellow); }
+.sticker--tilt-l { transform: rotate(-4deg); }
+.sticker--tilt-r { transform: rotate(3deg); }
+
+/* ------------------------------------------------ buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: clamp(1rem, 1.7vw, 1.15rem);
+  letter-spacing: -0.02em;
+  padding: 1.05em 2.4em;
+  border-radius: 9999px;
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease);
+}
+.btn--hard {
+  background: var(--ink);
+  color: #fff;
+  border: 2px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--red);
+}
+.btn--hard:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--red); }
+.btn--hard:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--red); }
+.btn--onblue { background: #fff; color: var(--ink); box-shadow: 5px 5px 0 var(--ink); }
+.btn--onblue:hover { box-shadow: 8px 8px 0 var(--ink); }
+.btn--onblue:active { box-shadow: 2px 2px 0 var(--ink); }
+.btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+/* ------------------------------------------------ nav */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 50;
+  height: var(--nav-h); display: flex; align-items: center;
+  transition: background-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+.nav.scrolled {
+  background: rgba(255, 251, 242, 0.88);
+  backdrop-filter: saturate(140%) blur(10px);
+  box-shadow: 0 2px 0 var(--ink);
+}
+.nav__inner {
+  width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.wordmark { font-weight: 900; font-size: 1.3rem; letter-spacing: -0.03em; }
+.wordmark__star { color: var(--red); margin-left: 0.2em; display: inline-block; animation: spin 6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.nav__cta {
+  font-weight: 800; font-size: 0.9rem;
+  padding: 0.55em 1.2em;
+  border: 2px solid var(--ink); border-radius: 999px;
+  background: var(--lime);
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease);
+}
+.nav__cta:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
+
+/* ------------------------------------------------ hero */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: calc(var(--nav-h) + 5vh) var(--pad) 9vh;
+  overflow: hidden;
+}
+.spark {
+  position: absolute; font-size: clamp(1.3rem, 3vw, 2.2rem); pointer-events: none;
+  animation: floaty 4.5s ease-in-out infinite alternate;
+}
+.spark--1 { top: 18%; left: 12%; color: var(--red); }
+.spark--2 { top: 26%; right: 14%; color: var(--blue); animation-delay: .8s; }
+.spark--3 { bottom: 22%; left: 18%; color: var(--yellow); animation-delay: 1.6s; }
+.spark--4 { bottom: 30%; right: 10%; color: var(--pink); animation-delay: 2.2s; }
+@keyframes floaty { from { transform: translateY(0) rotate(-8deg); } to { transform: translateY(-16px) rotate(10deg); } }
+
+.hero__inner { max-width: 860px; position: relative; z-index: 1; }
+.hero__badges { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+.hero__mark { width: clamp(120px, 18vw, 170px); margin: 0 auto 1.4rem; }
+.hero__mark svg { width: 100%; height: auto; overflow: visible; }
+
+.hero__title {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 0.02em;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 9.4vw, 5.6rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+  margin-bottom: 1.7rem;
+}
+.line--outline {
+  color: transparent;
+  -webkit-text-stroke: 2.5px var(--ink);
+}
+.hero__sub {
+  font-size: clamp(1.02rem, 2.6vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 auto clamp(2rem, 5vw, 2.8rem);
+  max-width: 42ch;
+}
+.hero__actions { display: flex; justify-content: center; }
+
+/* ------------------------------------------------ marquee */
+.marquee {
+  overflow: hidden;
+  background: var(--ink);
+  color: #fff;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 0.85rem 0;
+}
+.marquee--accent { background: var(--red); color: #fff; }
+.marquee__track { display: flex; width: max-content; animation: scroll 22s linear infinite; }
+.marquee__track--reverse { animation-direction: reverse; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+.marquee__group { display: flex; align-items: center; flex: none; }
+.marquee__group span {
+  font-weight: 900;
+  font-size: clamp(1rem, 2.4vw, 1.35rem);
+  letter-spacing: 0.04em;
+  padding: 0 1.1rem;
+  white-space: nowrap;
+}
+.marquee__group i { font-style: normal; color: var(--lime); }
+.marquee--accent .marquee__group i { color: var(--yellow); }
+
+/* ------------------------------------------------ why — with stats inside */
+.why { padding: clamp(80px, 13vw, 150px) 0; }
+.why__inner { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); text-align: center; }
+
+/* stat cards — compact, 4-up supporting row */
+.why__stats {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.9rem, 2.2vw, 1.4rem);
+  margin: clamp(2rem, 4.6vw, 2.8rem) 0 clamp(2.8rem, 6.5vw, 4.2rem);
+}
+.stat {
+  position: relative;
+  text-align: center;
+  padding: clamp(1.5rem, 2.8vw, 2rem) clamp(0.8rem, 1.6vw, 1.1rem) clamp(1.3rem, 2.4vw, 1.7rem);
+  background: #fff;
+  border: 2.5px solid var(--ink);
+  border-radius: 22px;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.stat--a { transform: rotate(-1.6deg); box-shadow: 6px 6px 0 var(--pink); }
+.stat--b { transform: rotate(1.2deg); box-shadow: 6px 6px 0 var(--lime); }
+.stat--c { transform: rotate(-0.8deg); box-shadow: 6px 6px 0 #B9CCFF; }
+.stat--d { transform: rotate(1.4deg); box-shadow: 6px 6px 0 var(--yellow); }
+.stat:hover { transform: rotate(0deg) translateY(-5px); }
+.stat__num {
+  font-weight: 900;
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  line-height: 1; letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.stat__label { margin-top: 0.7rem; font-weight: 600; font-size: clamp(0.78rem, 1.4vw, 0.88rem); color: var(--ink-soft); line-height: 1.5; }
+.stat__tag {
+  position: absolute; top: -12px; right: 12px;
+  font-weight: 800; font-size: 0.66rem; letter-spacing: 0.06em;
+  padding: 0.35em 0.9em;
+  background: var(--yellow);
+  border: 2px solid var(--ink); border-radius: 999px;
+  box-shadow: 2px 2px 0 var(--ink);
+  transform: rotate(4deg);
+}
+
+/* experience cards — brand / creator */
+.exp {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.2rem, 3vw, 2rem);
+  max-width: 820px;
+  margin: 0 auto clamp(1.6rem, 3.6vw, 2.2rem);
+}
+.exp__card {
+  background: #fff;
+  border: 2.5px solid var(--ink);
+  border-radius: 22px;
+  padding: clamp(1.6rem, 3.4vw, 2.2rem) clamp(1.2rem, 2.6vw, 1.8rem);
+  transition: transform .25s var(--ease);
+}
+.exp__card--a { transform: rotate(-1deg); box-shadow: 7px 7px 0 var(--pink); }
+.exp__card--b { transform: rotate(1deg);  box-shadow: 7px 7px 0 #B9CCFF; }
+.exp__card:hover { transform: rotate(0deg) translateY(-5px); }
+.exp__text {
+  margin-top: 1.1rem;
+  font-weight: 800;
+  font-size: clamp(1.08rem, 2.4vw, 1.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.5;
+}
+.exp__card.reveal { transform: translateY(24px); }
+.exp__card--a.is-visible { transform: rotate(-1deg); }
+.exp__card--b.is-visible { transform: rotate(1deg); }
+.exp__card.is-visible:hover { transform: rotate(0deg) translateY(-5px); }
+
+.why__close { margin-top: clamp(1.4rem, 3.2vw, 2rem); font-size: clamp(1.5rem, 4.6vw, 2.8rem); }
+.why__line {
+  font-weight: 900;
+  font-size: clamp(1.7rem, 5.6vw, 3.4rem);
+  line-height: 1.2; letter-spacing: -0.04em;
+}
+.why__arrow {
+  display: block;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 900;
+  color: var(--red);
+  animation: hop 1.6s ease-in-out infinite;
+}
+@keyframes hop { 0%,100% { transform: translateY(0);} 50% { transform: translateY(7px);} }
+
+/* ------------------------------------------------ before → after */
+.ba { padding: 0 0 clamp(80px, 13vw, 150px); }
+.ba__inner { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+.ba__head { text-align: center; margin-bottom: clamp(2.4rem, 6vw, 3.6rem); }
+.ba__grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: stretch; gap: clamp(1rem, 2.6vw, 2rem);
+}
+.ba__card {
+  background: #fff;
+  border: 2.5px solid var(--ink);
+  border-radius: 22px;
+  padding: clamp(1.7rem, 3.8vw, 2.5rem);
+  transition: transform .25s var(--ease);
+}
+.ba__card--before { transform: rotate(-1deg); box-shadow: 7px 7px 0 var(--pink); }
+.ba__card--after  { transform: rotate(1deg);  box-shadow: 7px 7px 0 var(--lime); }
+.ba__card:hover { transform: rotate(0deg) translateY(-5px); }
+.ba__list { display: flex; flex-direction: column; gap: clamp(0.9rem, 2vw, 1.15rem); margin-top: 1.5rem; }
+.ba__item {
+  display: flex; align-items: flex-start; gap: 0.9rem;
+  font-weight: 700;
+  font-size: clamp(1.02rem, 2.3vw, 1.2rem);
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+  text-align: left;
+}
+.ba__item .check__box { background: #fff; margin-top: 0.1em; }
+.ba__card--after .ba__item .check__box { background: var(--lime); }
+.ba__arrow {
+  align-self: center;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 900;
+  color: var(--red);
+}
+.ba__arrow-glyph { display: inline-block; animation: hop 1.6s ease-in-out infinite; }
+.ba__card.reveal { transform: translateY(24px); }
+.ba__card--before.is-visible { transform: rotate(-1deg); }
+.ba__card--after.is-visible  { transform: rotate(1deg); }
+.ba__card.is-visible:hover { transform: rotate(0deg) translateY(-5px); }
+
+/* ------------------------------------------------ testimonials */
+.testi { padding: 0 0 clamp(80px, 12vw, 140px); }
+.testi__inner { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+.testi__head { text-align: center; margin-bottom: clamp(2.2rem, 5vw, 3.2rem); }
+.testi__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1rem, 2.4vw, 1.5rem); align-items: stretch; }
+.tcard {
+  display: flex; flex-direction: column; gap: 0.8rem;
+  background: #fff;
+  border: 2.5px solid var(--ink);
+  border-radius: 22px;
+  padding: clamp(1.3rem, 2.4vw, 1.7rem) clamp(1.1rem, 2vw, 1.4rem);
+  text-align: left;
+  transition: transform .25s var(--ease);
+}
+.tcard--a { transform: rotate(-1.4deg); box-shadow: 6px 6px 0 var(--yellow); }
+.tcard--b { transform: rotate(1deg);    box-shadow: 6px 6px 0 var(--pink); }
+.tcard--c { transform: rotate(-0.7deg); box-shadow: 6px 6px 0 var(--lime); }
+.tcard--d { transform: rotate(1.3deg);  box-shadow: 6px 6px 0 #B9CCFF; }
+.tcard:hover { transform: rotate(0deg) translateY(-5px); }
+.tcard__case {
+  font-weight: 800;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.tcard__role {
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+.tcard__quote {
+  font-weight: 700;
+  font-size: clamp(0.98rem, 1.6vw, 1.08rem);
+  letter-spacing: -0.02em;
+  line-height: 1.6;
+}
+.tcard.reveal { transform: translateY(24px); }
+.tcard--a.is-visible { transform: rotate(-1.4deg); }
+.tcard--b.is-visible { transform: rotate(1deg); }
+.tcard--c.is-visible { transform: rotate(-0.7deg); }
+.tcard--d.is-visible { transform: rotate(1.3deg); }
+.tcard.is-visible:hover { transform: rotate(0deg) translateY(-5px); }
+
+/* ------------------------------------------------ session (what this consulting is) */
+.session { padding: 0 0 clamp(90px, 14vw, 160px); }
+.session__inner { max-width: 760px; margin: 0 auto; padding: 0 var(--pad); text-align: center; }
+.session__inner .section-title { margin-bottom: clamp(1.8rem, 4.5vw, 2.6rem); }
+.session__body {
+  font-size: clamp(1.02rem, 2.4vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.85;
+  color: var(--ink-soft);
+}
+.session__body + .session__body { margin-top: 1.3rem; }
+
+/* ------------------------------------------------ for you — checklist */
+.foryou { background: #fff; border-top: 2.5px solid var(--ink); border-bottom: 2.5px solid var(--ink); }
+.foryou__inner {
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(80px, 12vw, 140px) var(--pad);
+  display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(2.4rem, 6vw, 5rem); align-items: start;
+}
+.foryou__head { position: sticky; top: calc(var(--nav-h) + 24px); }
+.checks { display: flex; flex-direction: column; gap: clamp(0.8rem, 2vw, 1.1rem); }
+.check {
+  display: flex; align-items: center; gap: 1.1rem;
+  font-weight: 700;
+  font-size: clamp(1.08rem, 2.7vw, 1.5rem);
+  letter-spacing: -0.025em;
+  padding: clamp(0.9rem, 2.2vw, 1.3rem) clamp(1rem, 2.4vw, 1.5rem);
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  background: var(--bg);
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease), background-color .2s var(--ease);
+}
+.check:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); background: #FDFFF0; }
+.check__box {
+  flex: none;
+  width: 1.5em; height: 1.5em;
+  display: grid; place-items: center;
+  font-size: 0.85em; font-weight: 900;
+  border: 2px solid var(--ink); border-radius: 8px;
+  background: var(--lime);
+}
+
+/* ------------------------------------------------ offer — pills */
+.offer { padding: clamp(90px, 14vw, 160px) 0; }
+.offer__inner { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+.offer__head { margin-bottom: clamp(2.6rem, 6vw, 4rem); }
+.pills { display: flex; flex-wrap: wrap; gap: clamp(0.9rem, 2.2vw, 1.4rem); }
+.pill {
+  font-weight: 800;
+  font-size: clamp(1.15rem, 3vw, 1.7rem);
+  letter-spacing: -0.03em;
+  padding: 0.8em 1.5em;
+  border: 2.5px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--ink);
+  cursor: default;
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+}
+.pill:hover { animation: wiggle .4s var(--ease); transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+@keyframes wiggle { 0%,100% { rotate: 0deg; } 30% { rotate: 1.8deg; } 70% { rotate: -1.8deg; } }
+.pill--cream { background: #fff; }
+.pill--pink { background: var(--pink); }
+.pill--lime { background: var(--lime); }
+.pill--blue { background: #B9CCFF; }
+.pill--yellow { background: var(--yellow); }
+.offer__note { margin-top: clamp(1.8rem, 4vw, 2.4rem); font-weight: 500; color: var(--muted); }
+
+/* ------------------------------------------------ cta */
+.cta {
+  background: var(--blue); color: #fff;
+  margin-top: clamp(48px, 8vw, 96px);
+  border: 2.5px solid var(--ink); border-bottom: 0;
+  border-radius: clamp(52px, 8vw, 76px) clamp(52px, 8vw, 76px) 0 0;
+}
+.cta__inner {
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(65px, 10vw, 110px) var(--pad);
+  text-align: center;
+}
+.cta__sticker {
+  display: block;
+  width: fit-content;
+  margin: calc(-1 * clamp(65px, 10vw, 110px) - 13px) auto calc(clamp(65px, 10vw, 110px) - 26px);
+}
+.cta__title {
+  font-weight: 900;
+  font-size: clamp(2rem, 6.4vw, 4rem);
+  line-height: 1.16; letter-spacing: -0.04em;
+  margin-bottom: clamp(2.2rem, 5vw, 3rem);
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
+}
+.cta__sub {
+  font-weight: 600;
+  font-size: clamp(1.02rem, 2.4vw, 1.25rem);
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.88);
+  margin: calc(-1 * clamp(1.1rem, 2.6vw, 1.6rem)) 0 clamp(2.2rem, 5vw, 3rem);
+}
+.cta__note {
+  margin-top: clamp(1.2rem, 2.8vw, 1.6rem);
+  font-weight: 500;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.62);
+}
+.cta__actions { display: flex; justify-content: center; }
+.contact {
+  margin-top: clamp(3.2rem, 7vw, 5rem);
+  display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(1.2rem, 4vw, 3rem);
+}
+.contact__item { display: flex; flex-direction: column; gap: 0.4rem; }
+.contact__label { font-weight: 800; font-size: 0.74rem; letter-spacing: 0.2em; color: rgba(255, 255, 255, 0.72); }
+.contact__value {
+  font-weight: 800; font-size: clamp(1.05rem, 2.6vw, 1.4rem); letter-spacing: -0.02em;
+  position: relative;
+}
+.contact__value::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 2.5px;
+  background: var(--lime);
+  transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease);
+}
+.contact__item:hover .contact__value::after { transform: scaleX(1); }
+
+/* ------------------------------------------------ footer */
+.footer { background: var(--ink); color: rgba(255, 255, 255, 0.7); }
+.footer__inner {
+  max-width: var(--maxw); margin: 0 auto;
+  padding: clamp(26px, 5vw, 38px) var(--pad);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  gap: 0.8rem 1.6rem; font-size: 0.85rem; font-weight: 600;
+}
+.footer__mark { font-weight: 900; color: #fff; }
+
+/* ------------------------------------------------ reveal */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.is-visible { opacity: 1; transform: none; }
+/* stat cards keep their tilt when revealed */
+.stat.reveal { transform: translateY(24px); }
+.stat--a.is-visible { transform: rotate(-1.6deg); }
+.stat--b.is-visible { transform: rotate(1.2deg); }
+.stat--c.is-visible { transform: rotate(-0.8deg); }
+.stat--d.is-visible { transform: rotate(1.4deg); }
+.stat.is-visible:hover { transform: rotate(0deg) translateY(-5px); }
+
+/* ------------------------------------------------ responsive */
+@media (max-width: 900px) {
+  .testi__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .foryou__inner { grid-template-columns: 1fr; gap: 2.2rem; }
+  .foryou__head { position: static; }
+}
+@media (max-width: 760px) {
+  .why__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .exp { grid-template-columns: 1fr; max-width: 480px; }
+}
+@media (max-width: 700px) {
+  .ba__grid { grid-template-columns: 1fr; }
+  .ba__arrow { justify-self: center; transform: rotate(90deg); }
+}
+@media (max-width: 620px) {
+  .spark { display: none; }
+  .contact { flex-direction: column; align-items: center; gap: 1.4rem; }
+  .contact__item { align-items: center; text-align: center; }
+}
+@media (max-width: 560px) {
+  .testi__grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+}
+
+/* ------------------------------------------------ a11y */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .stat.reveal, .ba__card.reveal, .tcard.reveal, .exp__card.reveal { opacity: 1; transform: none; transition: none; }
+  .stat--a.is-visible { transform: rotate(-1.6deg); }
+  .stat--b.is-visible { transform: rotate(1.2deg); }
+  .stat--c.is-visible { transform: rotate(-0.8deg); }
+  .stat--d.is-visible { transform: rotate(1.4deg); }
+  .exp__card--a.is-visible { transform: rotate(-1deg); }
+  .exp__card--b.is-visible { transform: rotate(1deg); }
+  .ba__card--before.is-visible { transform: rotate(-1deg); }
+  .ba__card--after.is-visible { transform: rotate(1deg); }
+  .tcard--a.is-visible { transform: rotate(-1.4deg); }
+  .tcard--b.is-visible { transform: rotate(1deg); }
+  .tcard--c.is-visible { transform: rotate(-0.7deg); }
+  .tcard--d.is-visible { transform: rotate(1.3deg); }
+  .marquee__track, .spark, .why__arrow, .wordmark__star, .ba__arrow-glyph { animation: none !important; }
+  .pill:hover { animation: none; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="wordmark">RINSIGHT<span class="wordmark__star">★</span></a>
+    <a href="#contact" class="nav__cta">1:1 컨설팅 신청 ↗</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <span class="spark spark--1" aria-hidden="true">✦</span>
+    <span class="spark spark--2" aria-hidden="true">✦</span>
+    <span class="spark spark--3" aria-hidden="true">✧</span>
+    <span class="spark spark--4" aria-hidden="true">✦</span>
+
+    <div class="hero__inner">
+      <div class="hero__badges reveal" data-reveal>
+        <span class="sticker sticker--tilt-l">SEOUL → GLOBAL 🌏</span>
+        <span class="sticker sticker--blue sticker--tilt-r">1:1 CONSULTING</span>
+      </div>
+
+      <div class="hero__mark reveal" data-reveal>
+        <svg viewBox="0 0 232 208" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="지구본과 종이비행기 일러스트">
+          <defs><clipPath id="globeClip"><circle cx="100" cy="120" r="58" /></clipPath></defs>
+          <g stroke="#14120F" stroke-width="2.3" stroke-linejoin="round">
+            <path d="M58 40c2 11 6 15 17 17-11 2-15 6-17 17-2-11-6-15-17-17 11-2 15-6 17-17Z" fill="#FFE066" />
+            <path d="M108 18c1.6 9 4.4 12 13 13-8.6 1.6-11.4 4-13 13-1.6-9-4.4-11.4-13-13 8.6-1 11.4-4 13-13Z" fill="#FFC7E0" />
+            <path d="M160 46c1.2 7 3.4 9 10 10-6.6 1.2-8.8 3-10 10-1.2-7-3.4-8.8-10-10 6.6-1 8.8-3 10-10Z" fill="#B9CCFF" />
+          </g>
+          <path d="M104 66v11M98.5 71.5h11" stroke="#14120F" stroke-width="2.3" stroke-linecap="round" />
+          <ellipse cx="100" cy="126" rx="88" ry="30" transform="rotate(-17 100 126)" stroke="#14120F" stroke-width="2.3" stroke-dasharray="1.6 9" stroke-linecap="round" />
+          <circle cx="100" cy="120" r="58" fill="#D6E9FB" stroke="#14120F" stroke-width="3.2" />
+          <g clip-path="url(#globeClip)">
+            <path d="M56 90c13-6 22 2 20 11-2 9-15 8-12 18 3 10 17 7 15 19-2 10-19 11-27 5l-9-28 13-25Z" fill="#D8EDBB" stroke="#14120F" stroke-width="2.2" stroke-linejoin="round" />
+            <path d="M114 82c10-3 17 5 13 14-4 8 5 11 13 9 10-2 15 9 9 17-7 8 4 15 1 24l31-14-4-48-64-2Z" fill="#D8EDBB" stroke="#14120F" stroke-width="2.2" stroke-linejoin="round" />
+            <path d="M95 151c8-2 13 6 9 12-4 6 2 13-5 16-8 4-16-4-13-12 2-8 2-15 9-16Z" fill="#D8EDBB" stroke="#14120F" stroke-width="2.2" stroke-linejoin="round" />
+          </g>
+          <g stroke="#14120F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+            <path d="M210 66 149 95l27 10 8 27 26-66Z" fill="#FFFFFF" />
+            <path d="M210 66l-34 39" fill="none" />
+          </g>
+        </svg>
+      </div>
+
+      <h1 class="hero__title reveal" data-reveal>
+        <span class="line line--solid">글로벌은</span>
+        <span class="line line--outline">운이 아니라</span>
+        <span class="line line--solid"><em class="marker">전략입니다</em></span>
+      </h1>
+
+      <p class="hero__sub reveal" data-reveal>
+        글로벌엔 정답이 없습니다.<br />
+        그래서 더 좋은 질문이 필요합니다.<br /><br />
+        브랜드 마케터와 크리에이터,<br />
+        두 경험을 바탕으로 함께 방향을 찾아갑니다.
+      </p>
+
+      <div class="hero__actions reveal" data-reveal>
+        <a href="#contact" class="btn btn--hard">1:1 컨설팅 신청하기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <div class="marquee__group">
+        <span>GLOBAL STRATEGY</span><i>★</i><span>CONTENT</span><i>★</i><span>TIKTOK SHOP</span><i>★</i><span>CREATOR COMMERCE</span><i>★</i><span>AI</span><i>★</i><span>PERSONAL BRANDING</span><i>★</i>
+      </div>
+      <div class="marquee__group">
+        <span>GLOBAL STRATEGY</span><i>★</i><span>CONTENT</span><i>★</i><span>TIKTOK SHOP</span><i>★</i><span>CREATOR COMMERCE</span><i>★</i><span>AI</span><i>★</i><span>PERSONAL BRANDING</span><i>★</i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ WHY — eyebrow → stats → experience → close ============ -->
+  <section class="why" id="why">
+    <div class="why__inner">
+      <p class="eyebrow reveal" data-reveal>WHY RINSIGHT?</p>
+
+      <div class="why__stats">
+        <div class="stat stat--a reveal" data-reveal>
+          <div class="stat__num"><span class="count" data-target="37" data-suffix="M+">0</span></div>
+          <div class="stat__label">단일 콘텐츠 최고 조회수</div>
+          <span class="stat__tag">🔥 VIRAL</span>
+        </div>
+        <div class="stat stat--b reveal" data-reveal>
+          <div class="stat__num"><span class="count" data-target="10" data-suffix="K+">0</span></div>
+          <div class="stat__label">3개월 만에 모은 글로벌 팔로워</div>
+          <span class="stat__tag">🚀 3 MONTHS</span>
+        </div>
+        <div class="stat stat--c reveal" data-reveal>
+          <div class="stat__num"><span class="count" data-target="1000" data-suffix="+">0</span></div>
+          <div class="stat__label">함께 일해 온 크리에이터</div>
+          <span class="stat__tag">🤝 CREATORS</span>
+        </div>
+        <div class="stat stat--d reveal" data-reveal>
+          <div class="stat__num"><span class="count" data-target="25" data-suffix="K+">0</span></div>
+          <div class="stat__label">채널 합산 팔로워</div>
+          <span class="stat__tag">🌏 TOTAL</span>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp__card exp__card--a reveal" data-reveal>
+          <span class="sticker sticker--tilt-l">브랜드 경험</span>
+          <p class="exp__text">브랜드 안에서<br />전략을 만들었고,</p>
+        </div>
+        <div class="exp__card exp__card--b reveal" data-reveal>
+          <span class="sticker sticker--blue sticker--tilt-r">크리에이터 경험</span>
+          <p class="exp__text">크리에이터로<br />직접 실행해봤습니다.</p>
+        </div>
+      </div>
+      <span class="why__arrow reveal" data-reveal aria-hidden="true">↓</span>
+      <p class="why__line why__close reveal" data-reveal>그래서 방향을 함께 정리하고,<br /><em class="marker">실행</em>까지 고민합니다.</p>
+    </div>
+  </section>
+
+  <!-- ============ BEFORE → AFTER ============ -->
+  <section class="ba">
+    <div class="ba__inner">
+      <div class="ba__head reveal" data-reveal>
+        <p class="eyebrow">BEFORE → AFTER</p>
+        <h2 class="section-title">컨설팅 이후,<br /><em class="marker">달라지는 것들</em></h2>
+      </div>
+      <div class="ba__grid">
+        <div class="ba__card ba__card--before reveal" data-reveal>
+          <span class="sticker sticker--tilt-l">BEFORE 🤔</span>
+          <ul class="ba__list">
+            <li class="ba__item"><span class="check__box" aria-hidden="true">?</span>내 계정의 방향이 아직 정리되지 않았다</li>
+            <li class="ba__item"><span class="check__box" aria-hidden="true">?</span>무엇부터 시작해야 할지 막막하다</li>
+            <li class="ba__item"><span class="check__box" aria-hidden="true">?</span>레퍼런스 없이, 내 감으로만 콘텐츠를 만들고 있다</li>
+          </ul>
+        </div>
+        <span class="ba__arrow" aria-hidden="true"><span class="ba__arrow-glyph">→</span></span>
+        <div class="ba__card ba__card--after reveal" data-reveal>
+          <span class="sticker sticker--blue sticker--tilt-r">AFTER ✨</span>
+          <ul class="ba__list">
+            <li class="ba__item"><span class="check__box" aria-hidden="true">✓</span>내 계정에 맞는 방향이 정리된다</li>
+            <li class="ba__item"><span class="check__box" aria-hidden="true">✓</span>무엇부터 실행해야 할지 명확해진다</li>
+            <li class="ba__item"><span class="check__box" aria-hidden="true">✓</span>앞으로 콘텐츠를 판단할 기준이 생긴다</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="testi">
+    <div class="testi__inner">
+      <div class="testi__head reveal" data-reveal>
+        <p class="eyebrow">REAL CASES</p>
+        <h2 class="section-title">함께했던 분들의<br /><em class="marker marker--pink">변화</em></h2>
+      </div>
+      <div class="testi__grid">
+        <div class="tcard tcard--a reveal" data-reveal>
+          <p class="tcard__case">180K Creator</p>
+          <p class="tcard__role">국내 18만 팔로워 크리에이터</p>
+          <p class="tcard__quote">국내에서는 성장하고 있었지만, 글로벌에서는 무엇을 해야 할지 막막했습니다. 컨설팅 이후에는 어떤 콘텐츠를 테스트해야 할지 기준이 생겼고, 앞으로의 방향이 훨씬 명확해졌습니다.</p>
+        </div>
+        <div class="tcard tcard--b reveal" data-reveal>
+          <p class="tcard__case">New Global Creator</p>
+          <p class="tcard__role">글로벌 계정을 시작하는 크리에이터</p>
+          <p class="tcard__quote">혼자 계속 고민만 하던 상태에서 벗어나, 계정 컨셉과 첫 콘텐츠 방향을 정리하고 바로 실행을 시작할 수 있었습니다.</p>
+        </div>
+        <div class="tcard tcard--c reveal" data-reveal>
+          <p class="tcard__case">Beauty Brand Founder</p>
+          <p class="tcard__role">해외 진출을 준비하는 뷰티 브랜드 대표</p>
+          <p class="tcard__quote">해외 시장에서 브랜드를 어떻게 보여줘야 할지 막막했는데, 우선순위와 콘텐츠 방향을 함께 정리할 수 있었습니다.</p>
+        </div>
+        <div class="tcard tcard--d reveal" data-reveal>
+          <p class="tcard__case">Personal Branding</p>
+          <p class="tcard__role">전문성을 콘텐츠로 보여주고 싶은 전문가</p>
+          <p class="tcard__quote">전문성을 어떻게 콘텐츠로 풀어야 할지 고민이 많았는데, 지금은 어떤 방향으로 계정을 운영하면 좋을지 큰 그림을 먼저 정리할 수 있었습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOR YOU — checklist ============ -->
+  <section class="foryou">
+    <div class="foryou__inner">
+      <div class="foryou__head reveal" data-reveal>
+        <p class="eyebrow">FOR YOU</p>
+        <h2 class="section-title">이런 분들에게<br /><em class="marker">추천</em>해요</h2>
+      </div>
+      <ul class="checks">
+        <li class="check reveal" data-reveal><span class="check__box" aria-hidden="true">✓</span>글로벌 콘텐츠를 시작하고 싶은 분</li>
+        <li class="check reveal" data-reveal><span class="check__box" aria-hidden="true">✓</span>퍼스널 브랜딩 방향이 고민인 분</li>
+        <li class="check reveal" data-reveal><span class="check__box" aria-hidden="true">✓</span>해외 시장 진출을 준비하는 브랜드</li>
+        <li class="check reveal" data-reveal><span class="check__box" aria-hidden="true">✓</span>실행 방향을 명확하게 만들고 싶은 분</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ OFFER — big pills ============ -->
+  <section class="offer">
+    <div class="offer__inner">
+      <div class="offer__head reveal" data-reveal>
+        <p class="eyebrow">WHAT WE CAN WORK ON</p>
+        <h2 class="section-title">함께 <em class="marker">정리해볼 수 있는</em> 것들</h2>
+      </div>
+      <div class="pills">
+        <span class="pill pill--cream reveal" data-reveal>퍼스널 브랜딩</span>
+        <span class="pill pill--pink reveal" data-reveal>계정 컨셉 설정</span>
+        <span class="pill pill--lime reveal" data-reveal>글로벌 콘텐츠 기획</span>
+        <span class="pill pill--blue reveal" data-reveal>레퍼런스 계정 분석</span>
+        <span class="pill pill--yellow reveal" data-reveal>글로벌 마케팅</span>
+        <span class="pill pill--cream reveal" data-reveal>TikTok Shop</span>
+        <span class="pill pill--pink reveal" data-reveal>AI 활용</span>
+      </div>
+      <p class="offer__note reveal" data-reveal>꼭 이 중에서 고르지 않아도 괜찮아요. 지금 가장 고민되는 것부터 함께 정리하면 됩니다.</p>
+    </div>
+  </section>
+
+  <!-- ============ SESSION — what this consulting is ============ -->
+  <section class="session">
+    <div class="session__inner">
+      <p class="eyebrow reveal" data-reveal>1:1 CONSULTING</p>
+      <h2 class="section-title reveal" data-reveal>1시간, <em class="marker marker--blue">방향</em>을<br />정리하는 시간</h2>
+      <p class="session__body reveal" data-reveal>
+        사전 설문을 통해 현재 상황과 목표를 먼저 파악합니다.
+      </p>
+      <p class="session__body reveal" data-reveal>
+        1:1 컨설팅에서는 그 내용을 바탕으로 앞으로 어떤 방향으로 나아가야 할지, 어떤 콘텐츠를 만들고 어떻게 계정을 운영해야 할지 함께 정리합니다.
+      </p>
+      <p class="session__body reveal" data-reveal>
+        컨설팅이 끝난 후에는 무엇부터 실행해야 할지 명확한 기준을 가져갈 수 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE 2 ============ -->
+  <div class="marquee marquee--accent" aria-hidden="true">
+    <div class="marquee__track marquee__track--reverse">
+      <div class="marquee__group">
+        <span>THE WORLD IS YOUR NEXT AUDIENCE</span><i>✈</i><span>LET'S GO GLOBAL</span><i>✈</i><span>THE WORLD IS YOUR NEXT AUDIENCE</span><i>✈</i><span>LET'S GO GLOBAL</span><i>✈</i>
+      </div>
+      <div class="marquee__group">
+        <span>THE WORLD IS YOUR NEXT AUDIENCE</span><i>✈</i><span>LET'S GO GLOBAL</span><i>✈</i><span>THE WORLD IS YOUR NEXT AUDIENCE</span><i>✈</i><span>LET'S GO GLOBAL</span><i>✈</i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CTA / CONTACT ============ -->
+  <section class="cta" id="contact">
+    <div class="cta__inner">
+      <span class="sticker sticker--yellow sticker--tilt-r cta__sticker reveal" data-reveal>LET'S TALK ↗</span>
+      <h2 class="cta__title reveal" data-reveal>혼자 고민하는 시간을<br />줄여보세요.</h2>
+      <p class="cta__sub reveal" data-reveal>방향이 명확해지면,<br />실행은 훨씬 쉬워집니다.</p>
+      <div class="cta__actions reveal" data-reveal>
+        <a href="https://forms.gle/nhj5hAjGAuyBCqVh9" target="_blank" rel="noopener" class="btn btn--hard btn--onblue">1:1 컨설팅 신청하기</a>
+      </div>
+      <p class="cta__note reveal" data-reveal>현재는 사전 설문을 확인한 후<br />순차적으로 컨설팅을 안내드리고 있습니다.</p>
+      <div class="contact reveal" data-reveal>
+        <a class="contact__item" href="https://www.instagram.com/itsRin.global/" target="_blank" rel="noopener">
+          <span class="contact__label">INSTAGRAM</span>
+          <span class="contact__value">@itsRin.global</span>
+        </a>
+        <a class="contact__item" href="mailto:itsringlobal@gmail.com">
+          <span class="contact__label">EMAIL</span>
+          <span class="contact__value">itsringlobal@gmail.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <span class="footer__mark">RINSIGHT ★</span>
+    <span>Global Strategy Consulting · Seoul</span>
+    <span>© 2026 RINSIGHT</span>
+  </div>
+</footer>
+
+<script>
+/* RINSIGHT · Theme 2 TRENDY — reveal, count-up, nav (marquee is pure CSS) */
+(function () {
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- nav ---------- */
+  var nav = document.getElementById("nav");
+  function onNavScroll() { nav.classList.toggle("scrolled", window.scrollY > 12); }
+  onNavScroll();
+  window.addEventListener("scroll", onNavScroll, { passive: true });
+
+  /* ---------- count-up ---------- */
+  function countUp(el) {
+    var target = parseFloat(el.getAttribute("data-target")) || 0;
+    var suffix = el.getAttribute("data-suffix") || "";
+    function fmt(n) { return Math.round(n).toLocaleString("en-US"); }
+    if (reduceMotion) { el.textContent = fmt(target) + suffix; return; }
+    var dur = 1200, start = null;
+    function frame(ts) {
+      if (start === null) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = p === 1 ? 1 : 1 - Math.pow(2, -10 * p);
+      el.textContent = fmt(eased * target) + suffix;
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* ---------- reveal engine — rAF-throttled viewport scan ---------- */
+  var pending = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+
+  pending.forEach(function (el) {
+    var sibs = Array.prototype.filter.call(el.parentElement.children, function (c) {
+      return c.classList.contains("reveal");
+    });
+    if (sibs.length > 1) {
+      el.style.transitionDelay = Math.min(sibs.indexOf(el) * 80, 480) + "ms";
+    }
+  });
+
+  function revealEl(el) {
+    el.classList.add("is-visible");
+    var counter = el.querySelector(".count");
+    if (counter && !counter.dataset.done) { counter.dataset.done = "1"; countUp(counter); }
+  }
+
+  var ticking = false;
+  function scan() {
+    ticking = false;
+    var line = window.innerHeight * 0.92;
+    var next = [];
+    for (var i = 0; i < pending.length; i++) {
+      var r = pending[i].getBoundingClientRect();
+      if (r.top < line) revealEl(pending[i]);
+      else next.push(pending[i]);
+    }
+    pending = next;
+    if (!pending.length) {
+      window.removeEventListener("scroll", onScan);
+      window.removeEventListener("resize", onScan);
+    }
+  }
+  function onScan() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(scan);
+    setTimeout(scan, 120);        // fallback when rAF is throttled
+  }
+  window.addEventListener("scroll", onScan, { passive: true });
+  window.addEventListener("resize", onScan);
+  window.addEventListener("load", onScan);   // re-scan after fonts/layout settle
+  scan();
+})();
+
+</script>
+</body>
+</html>
